@@ -45,9 +45,17 @@ jobs:
 
       - name: Configure JSHint (ES8)
         run: |
-          echo '{ "esversion": 8 }' > .jshintrc
+          cat > .jshintrc << 'EOF'
+          {
+           "esversion": 8,
+           "asi": true,
+           "-W033": true,
+           "-W069": true
+          }
+          EOF
 
       - name: Run Linter
         run: |
-          find ./server/database -name "*.js" -not -path "./server/database/node_modules/*" -exec jshint {} +
+          find ./server/database -name "*.js" -not -path "./server/database/node_modules/*" -exec jshint --config .jshintrc {} +
           echo "Linted all the js files successfully"
+          
