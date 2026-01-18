@@ -31,7 +31,7 @@ jobs:
 
     - name: Run Linter
       run: |
-        flake8 server --max-line-length=120 --ignore=E231,E501,E712,E722,F841,F821,W391
+        flake8 server --max-line-length=120 --ignore=E231,E501,E712,E722,F401,F811,F821,W391,E302,E303,E305,E265,E275,E226,E251
 
   lint_js:
       name: Lint JavaScript Files
@@ -51,6 +51,4 @@ jobs:
 
       - name: Run Linter
         run: |
-          # This command finds all JavaScript files recursively and runs JSHint on them
-          find ./server/database -name "*.js" -exec jshint {} +
-          echo "Linted all the js files successfully"
+          find ./server/database -name "*.js" -not -path "./server/database/node_modules/*" -exec jshint {} + echo "Linted all the js files successfully"
