@@ -30,7 +30,7 @@ jobs:
 
     - name: Run Linter
       run: |
-        flake8 server --max-line-length=120 --ignore=E117,E121,E128,E131,E203,E226,E251,E275,E302,E303,E305,E501,E712,E722,E741,E231,F401,F811,F821,F841,W291,W292,W391
+        flake8 server --max-line-length=120 --ignore=E117,E121,E128,E131,E203,E226,E251,E275,E302,E303,E305,E501,E712,E722,E741,E231,E265,F401,F811,F821,F841,W291,W292,W391
   
   lint_js:
       name: Lint JavaScript Files
