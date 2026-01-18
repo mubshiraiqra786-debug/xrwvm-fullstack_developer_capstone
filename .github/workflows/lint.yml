@@ -31,7 +31,7 @@ jobs:
 
     - name: Run Linter
       run: |
-        flake8 server --max-line-length=120 --ignore=E117,E121,E128,E131,E203,E226,E251,E275,E302,E303,E305,E501,E712,E722,E741,F401,F811,F821,F841,W291,W292,W391
+        flake8 server --max-line-length=120 --ignore=E121,E128,E131,E117,E231,E251,E225,E265,E402,E203,E275,E501,E712,E722,F401,F811,F821,F841,W391
 
   lint_js:
       name: Lint JavaScript Files
@@ -51,4 +51,6 @@ jobs:
 
       - name: Run Linter
         run: |
-          find ./server/database -name "*.js" -not -path "./server/database/node_modules/*" -exec jshint {} + echo "Linted all the js files successfully"
+          find ./server/database -name "*.js" -not -path "./server/database/node_modules/*" -exec jshint {} +
+          echo "Linted all the js files successfully"
+          
